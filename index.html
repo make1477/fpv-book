@@ -79,18 +79,11 @@ li input[type=checkbox]{margin-right:.5em}
   main h1:first-of-type{font-size:1.7em}
   main h2{font-size:1.3em}
 }
-.cover{position:relative; display:flex; flex-direction:column; text-align:center;
-  min-height:88vh; padding:110px 24px 34px; margin-bottom:2.2em; overflow:hidden;
-  color:#fff; background:#0a1428 url('assets/cover.jpg') center top / cover no-repeat}
-.cover-text{flex:1 1 auto}
-.cover-title{font-size:3em; font-weight:700; line-height:1.5; letter-spacing:.06em;
-  margin:0 0 .75em; text-shadow:0 2px 26px rgba(0,0,0,.6)}
-.cover-rule{display:block; width:64px; height:3px; margin:0 auto 1.7em;
-  background:#f59e0b; border-radius:2px; box-shadow:0 0 14px rgba(245,158,11,.8)}
-.cover-sub{font-size:1.08em; color:rgba(255,255,255,.93); margin:0 0 1.1em;
-  text-shadow:0 1px 12px rgba(0,0,0,.6)}
-.cover-line{font-size:.95em; color:rgba(255,255,255,.78); letter-spacing:.3em; margin:0}
-.cover-foot{font-size:.85em; color:rgba(255,255,255,.6); margin:0; letter-spacing:.05em}
+.cover{position:relative;
+  min-height:88vh; margin-bottom:2.2em; overflow:hidden;
+  background:#0a1428 url('assets/cover.jpg') center top / cover no-repeat;
+  aspect-ratio:3/4; max-height:118vh}
+@media (max-width:1080px){.cover{min-height:72vh}}
 figure.track-fig{margin:1.4em 0; padding:0; text-align:center}
 figure.track-fig svg{width:100%; max-width:760px; height:auto; border:1px solid var(--line);
   border-radius:8px; background:#fbfcfe}
@@ -100,10 +93,9 @@ figure.track-fig figcaption{margin-top:.7em; font-size:13.5px; line-height:1.7; 
   .sidebar{display:none} main{padding:0; max-width:100%}
   pre{background:#f5f5f5; color:#111}
   main h1{page-break-before:always; break-before:page}
-  .cover{padding:64mm 12mm 16mm; border:none; min-height:250mm;
-    page-break-after:always; break-after:page;
+  .cover{border:none; min-height:250mm;
+    page-break-after:always; break-after:page; background-position:center center;
     -webkit-print-color-adjust:exact; print-color-adjust:exact}
-  .cover-title{font-size:2.6em}
   main h1:first-of-type{page-break-before:auto; break-before:auto}
   main h2, main h3, main h4{break-after:avoid; page-break-after:avoid}
   table, pre, blockquote, img, figure svg{break-inside:avoid; page-break-inside:avoid}
@@ -519,15 +511,7 @@ body>
 
   </nav>
   <main>
-    <div class="cover">
-<div class="cover-text">
-<p class="cover-title">FPV 穿越机<br>30 天入门教程</p>
-<span class="cover-rule"></span>
-<p class="cover-sub">面向完全零基础新手的 FPV 穿越机学习教程</p>
-<p class="cover-line">先理论 · 再模拟 · 后实飞</p>
-</div>
-<p class="cover-foot">make1477　·　2026 年 10 月版</p>
-</div>
+    <div class="cover" role="img" aria-label="封面：FPV 穿越机 30 天入门教程（穿越机与发光竞速门）"></div>
 <h1 id="fpv-30">FPV 穿越机 30 天入门教程</h1>
 <h2 id="home-table">起飞前先认表：你的飞机属于哪一类</h2>
 <p>先把类别认清楚，再谈怎么飞。国内现行依据是《无人驾驶航空器飞行管理暂行条例》（2024 年 1 月 1 日起施行）。常见 5 寸花飞穿越机，空机加电池约 500–700 克，落在<strong>轻型</strong>；室内 Tinywhoop 小机多在 250 克以下，属<strong>微型</strong>。类别不同，能飞的高度、空域和资质要求都不同。</p>
