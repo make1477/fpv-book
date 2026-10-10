@@ -79,14 +79,18 @@ li input[type=checkbox]{margin-right:.5em}
   main h1:first-of-type{font-size:1.7em}
   main h2{font-size:1.3em}
 }
-.cover{text-align:center; padding:88px 20px 64px; margin-bottom:2.2em;
-  border-bottom:1px solid var(--line); background:linear-gradient(180deg,#fbfdff,#ffffff)}
-.cover-title{font-size:2.55em; font-weight:700; color:var(--accent); line-height:1.45;
-  margin:0 0 .7em; letter-spacing:.04em}
-.cover-sub{font-size:1.12em; color:#374151; margin:0 0 1.6em}
-.cover-line{font-size:1em; color:var(--muted); letter-spacing:.16em; margin:0 0 3.2em}
-.cover-meta{font-size:.95em; color:var(--muted); margin:0 0 1em}
-.cover-note{font-size:.85em; color:#8492a6; margin:0; line-height:1.8}
+.cover{position:relative; display:flex; flex-direction:column; text-align:center;
+  min-height:88vh; padding:110px 24px 34px; margin-bottom:2.2em; overflow:hidden;
+  color:#fff; background:#0a1428 url('assets/cover.jpg') center top / cover no-repeat}
+.cover-text{flex:1 1 auto}
+.cover-title{font-size:3em; font-weight:700; line-height:1.5; letter-spacing:.06em;
+  margin:0 0 .75em; text-shadow:0 2px 26px rgba(0,0,0,.6)}
+.cover-rule{display:block; width:64px; height:3px; margin:0 auto 1.7em;
+  background:#f59e0b; border-radius:2px; box-shadow:0 0 14px rgba(245,158,11,.8)}
+.cover-sub{font-size:1.08em; color:rgba(255,255,255,.93); margin:0 0 1.1em;
+  text-shadow:0 1px 12px rgba(0,0,0,.6)}
+.cover-line{font-size:.95em; color:rgba(255,255,255,.78); letter-spacing:.3em; margin:0}
+.cover-foot{font-size:.85em; color:rgba(255,255,255,.6); margin:0; letter-spacing:.05em}
 figure.track-fig{margin:1.4em 0; padding:0; text-align:center}
 figure.track-fig svg{width:100%; max-width:760px; height:auto; border:1px solid var(--line);
   border-radius:8px; background:#fbfcfe}
@@ -96,8 +100,10 @@ figure.track-fig figcaption{margin-top:.7em; font-size:13.5px; line-height:1.7; 
   .sidebar{display:none} main{padding:0; max-width:100%}
   pre{background:#f5f5f5; color:#111}
   main h1{page-break-before:always; break-before:page}
-  .cover{padding:56mm 0 0; border:none; background:none; min-height:225mm;
-    page-break-after:always; break-after:page}
+  .cover{padding:64mm 12mm 16mm; border:none; min-height:250mm;
+    page-break-after:always; break-after:page;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .cover-title{font-size:2.6em}
   main h1:first-of-type{page-break-before:auto; break-before:auto}
   main h2, main h3, main h4{break-after:avoid; page-break-after:avoid}
   table, pre, blockquote, img, figure svg{break-inside:avoid; page-break-inside:avoid}
@@ -514,11 +520,13 @@ body>
   </nav>
   <main>
     <div class="cover">
+<div class="cover-text">
 <p class="cover-title">FPV 穿越机<br>30 天入门教程</p>
+<span class="cover-rule"></span>
 <p class="cover-sub">面向完全零基础新手的 FPV 穿越机学习教程</p>
 <p class="cover-line">先理论 · 再模拟 · 后实飞</p>
-<p class="cover-meta">2026 年 10 月版　　make1477</p>
-<p class="cover-note">本书内容仅供学习参考，飞行前请遵守当地法律法规，务必在合法合规的空旷场地练习。</p>
+</div>
+<p class="cover-foot">make1477　·　2026 年 10 月版</p>
 </div>
 <h1 id="fpv-30">FPV 穿越机 30 天入门教程</h1>
 <h2 id="home-table">起飞前先认表：你的飞机属于哪一类</h2>
