@@ -93,6 +93,7 @@ figure.track-fig figcaption{margin-top:.7em; font-size:13.5px; line-height:1.7; 
   .sidebar{display:none} main{padding:0; max-width:100%}
   pre{background:#f5f5f5; color:#111}
   main h1{page-break-before:always; break-before:page}
+  main h1 + h1{page-break-before:auto; break-before:auto}
   .cover{border:none; min-height:250mm;
     page-break-after:always; break-after:page; background-position:center center;
     -webkit-print-color-adjust:exact; print-color-adjust:exact}
@@ -142,11 +143,10 @@ body.nav-open .backdrop{display:block}
 @media print{#progress,.topbar,.backdrop{display:none!important}}
 </style>
 </head>
-<
+<body>
 <div id="progress"></div>
 <div class="topbar"><button class="burger" id="burger" aria-label="打开目录"><span></span></button><div class="tt" id="ttl">FPV 穿越机 30 天入门教程</div></div>
 <div class="backdrop" id="backdrop"></div>
-body>
 <div class="layout">
   <nav class="sidebar">
     <h2>目录</h2><div class="toc-progress" id="tocp"></div>
