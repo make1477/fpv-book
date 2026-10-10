@@ -79,9 +79,22 @@ li input[type=checkbox]{margin-right:.5em}
   main h1:first-of-type{font-size:1.7em}
   main h2{font-size:1.3em}
 }
+figure.track-fig{margin:1.4em 0; padding:0; text-align:center}
+figure.track-fig svg{width:100%; max-width:760px; height:auto; border:1px solid var(--line);
+  border-radius:8px; background:#fbfcfe}
+figure.track-fig figcaption{margin-top:.7em; font-size:13.5px; line-height:1.7; color:var(--muted); text-align:left}
+@page{size:A4; margin:18mm 16mm}
 @media print{
   .sidebar{display:none} main{padding:0; max-width:100%}
   pre{background:#f5f5f5; color:#111}
+  main h1{page-break-before:always; break-before:page}
+  main h1:first-of-type{page-break-before:auto; break-before:auto}
+  main h2, main h3, main h4{break-after:avoid; page-break-after:avoid}
+  table, pre, blockquote, img, figure svg{break-inside:avoid; page-break-inside:avoid}
+  figure svg{filter:none}
+  a{color:inherit; text-decoration:none}
+  .toc-progress{display:none}
+  p, li{orphans:2; widows:2}
 }
 
 /* ---- 目录增强：滚动高亮 / 移动端抽屉 / 阅读进度 ---- */
@@ -132,6 +145,8 @@ body>
     <div class="toc">
 <ul>
 <li><a href="#fpv-30">FPV 穿越机 30 天入门教程</a><ul>
+<li><a href="#home-table">起飞前先认表：你的飞机属于哪一类</a></li>
+<li><a href="#home-route">三步选路线</a></li>
 <li><a href="#_1">前言</a><ul>
 <li><a href="#_2">为什么写这本书</a></li>
 <li><a href="#_3">这本书的定位</a></li>
@@ -418,6 +433,18 @@ body>
 <li><a href="#_101">本科目小结</a></li>
 </ul>
 </li>
+<li><a href="#k9">科目九 刷锅（绕标环绕 · 左刷 / 右刷）</a><ul>
+<li><a href="#k9-1">一、训练目的</a></li>
+<li><a href="#k9-2">二、动作原理</a></li>
+<li><a href="#k9-3">三、左刷与右刷的区别</a></li>
+<li><a href="#k9-4">四、分解训练</a></li>
+<li><a href="#k9-5">五、动作要领</a></li>
+<li><a href="#k9-6">六、常见错误</a></li>
+<li><a href="#k9-7">七、达标标准</a></li>
+<li><a href="#k9-8">八、安全注意</a></li>
+<li><a href="#k9-9">本科目小结</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_102">第四部分 · 拓展与回顾</a></li>
@@ -451,6 +478,8 @@ body>
 <li><a href="#d">附录 D 器材与采购</a></li>
 <li><a href="#e">附录 E 法规与实用链接</a></li>
 <li><a href="#f">附录 F 安全红线速记</a></li>
+<li><a href="#g">附录 G 2025 世界大赛赛道解析</a></li>
+<li><a href="#h">附录 H 版本说明</a></li>
 </ul>
 </li>
 </ul>
@@ -459,6 +488,52 @@ body>
   </nav>
   <main>
     <h1 id="fpv-30">FPV 穿越机 30 天入门教程</h1>
+<h2 id="home-table">起飞前先认表：你的飞机属于哪一类</h2>
+<p>先把类别认清楚，再谈怎么飞。国内现行依据是《无人驾驶航空器飞行管理暂行条例》（2024 年 1 月 1 日起施行）。常见 5 寸花飞穿越机，空机加电池约 500–700 克，落在<strong>轻型</strong>；室内 Tinywhoop 小机多在 250 克以下，属<strong>微型</strong>。类别不同，能飞的高度、空域和资质要求都不同。</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>重量 / 性能门槛</th>
+<th>适飞空域</th>
+<th>限高</th>
+<th>休闲飞行要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>微型</td>
+<td>空机重量 &lt; 0.25 kg；平飞速度 ≤ 40 km/h</td>
+<td>适飞空域内</td>
+<td>真高 50 米</td>
+<td>实名登记；视距内飞行；一般免执照、免申请</td>
+</tr>
+<tr>
+<td>轻型</td>
+<td>空机 0.25–4 kg（最大起飞重量 ≤ 7 kg）；速度 ≤ 100 km/h</td>
+<td>适飞空域内</td>
+<td>真高 120 米</td>
+<td>实名登记；视距内免申请；进入管制空域需报批</td>
+</tr>
+<tr>
+<td>小型及以上</td>
+<td>空机 &gt; 4 kg（小型 4–15 kg）</td>
+<td>无适飞豁免</td>
+<td>逐次审批</td>
+<td>需操控员执照，并逐次申请空域</td>
+</tr>
+</tbody>
+</table>
+<p>来源：国务院、中央军委《无人驾驶航空器飞行管理暂行条例》（2024-01-01 施行）。飞行前以 UOM 平台（uom.caac.gov.cn）当日口径为准。</p>
+<h2 id="home-route">三步选路线</h2>
+<p>每个人的预算、场地和动手意愿不同，不该买同一套装备。回答三个问题，对号入座：</p>
+<ol>
+<li><strong>你现在的状态？</strong>什么都还没买 → 从「遥控器 + 免费模拟器」起步（第一件设备是遥控器，见 4.3 节）；已有遥控器 → 直接进模拟器（第 4 章）；已有 RTF 整机 → 模拟器与实飞两条线并行（第 4、6 章）。</li>
+<li><strong>主要在哪飞？</strong>室内 / 小区空地为主 → Tinywhoop 优先，抗炸、扰民小；郊外空旷场地 → 2–3 寸过渡或直接 5 寸（见 1.4.2 节）。</li>
+<li><strong>想不想自己焊接、调参？</strong>想到手就飞 → RTF 套装；愿意动手 → 散件组装，第 5 章整章带你装。</li>
+</ol>
+<p>逐级装备投入与预算分析见 5.4 节器材采购配置单。</p>
+<hr>
 <blockquote>
 <p>面向<strong>完全零基础</strong>新手的 FPV 穿越机学习教程。以「先理论、再模拟、后实飞」为主线，用 30 天四个阶段，带你从认识零件走到合规场地实飞。</p>
 <p><strong>郑重声明</strong>：本书所有内容仅用于<strong>合法的民用 FPV 飞行学习</strong>，不涉及任何爆炸物、点火/引爆装置、武器化或危险物品投放等内容。飞行前请遵守《无人驾驶航空器飞行管理暂行条例》，完成实名登记并在合法空域飞行。</p>
@@ -1422,6 +1497,40 @@ body>
 <li><strong>轻型、小型</strong>：按空机重量和最大起飞重量划分，多数 5 寸、7 寸、10 寸穿越机落在轻型或小型范围；</li>
 <li>中、大型：管理最严格。</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>重量 / 性能门槛</th>
+<th>适飞空域</th>
+<th>限高</th>
+<th>休闲飞行要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>微型</td>
+<td>空机重量 &lt; 0.25 kg；平飞速度 ≤ 40 km/h</td>
+<td>适飞空域内</td>
+<td>真高 50 米</td>
+<td>实名登记；视距内飞行；一般免执照、免申请</td>
+</tr>
+<tr>
+<td>轻型</td>
+<td>空机 0.25–4 kg（最大起飞重量 ≤ 7 kg）；速度 ≤ 100 km/h</td>
+<td>适飞空域内</td>
+<td>真高 120 米</td>
+<td>实名登记；视距内免申请；进入管制空域需报批</td>
+</tr>
+<tr>
+<td>小型及以上</td>
+<td>空机 &gt; 4 kg（小型 4–15 kg）</td>
+<td>无适飞豁免</td>
+<td>逐次审批</td>
+<td>需操控员执照，并逐次申请空域</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>不同类别在登记、资质、空域、飞行高度上的要求不同。请在 <strong>UOM 平台</strong>按自己飞机的实际重量确认类别，不要凭感觉判断。</p>
 </blockquote>
@@ -1438,7 +1547,7 @@ body>
 <h2 id="35">3.5 空域规则：先查后飞</h2>
 <p>空域分为两类：</p>
 <ul>
-<li><strong>管制空域</strong>：未经空中交通管理机构批准，<strong>不得</strong>在其中飞行；需要飞行应提前通过 UOM 等渠道提出申请，经批准后方可；</li>
+<li><strong>管制空域</strong>：未经空中交通管理机构批准，<strong>不得</strong>在其中飞行；需要飞行的，应在拟飞行前 <strong>1 日 12 时前</strong>通过 UOM 等渠道提出飞行申请，经批准后方可按批准的时间、高度、范围执行；</li>
 <li><strong>适飞空域</strong>：管制空域以外、供微型、轻型、小型无人驾驶航空器飞行的空域，通常为<strong>真高 120 米以下</strong>（具体以公布的空域数据为准）。</li>
 </ul>
 <p>飞行前务必：</p>
@@ -1547,7 +1656,9 @@ body>
 <li><strong>建立肌肉记忆</strong>：打杆动作需要大量重复，模拟器可以随时练；</li>
 <li><strong>适应 FPV 视角</strong>：先在虚拟画面里克服方向感混乱；</li>
 <li><strong>训练节奏可控</strong>：可暂停、回放、针对一个动作反复练；</li>
-<li>经验上，模拟器练得越扎实，真机阶段越省电池、越少炸机。</li>
+<li>经验上，模拟器练得越扎实，真机阶段越省电池、越少炸机；</li>
+<li><strong>量化门槛：累计练习 ≥ 10 小时</strong>再考虑上真机，不追求进度、追求每个科目「稳」；</li>
+<li><strong>从第一天就用 Acro（手动）模式练</strong>：穿越机的本质是 Acro，靠自稳练出来的手感上真机会全部推倒重来（Angle/Horizon 只作极短暂过渡）。</li>
 </ul>
 <h2 id="42">4.2 主流模拟器清单</h2>
 <p>以下模拟器均支持 FPV 遥控器（TX）有线连接（也可用游戏手柄临时体验，但不推荐）；PC 端主流购买渠道为 Steam。</p>
@@ -1763,7 +1874,8 @@ body>
 <li>学会「点动」修正，而不是一直压着杆；</li>
 <li>视线永远看向<strong>要去的方向/下一个门</strong>，身体和手会自然跟随；</li>
 <li>油门要细腻，转弯、减速时及时补/收油门保持高度；</li>
-<li>放松手指和手臂，紧张、攥杆是新手常见问题。</li>
+<li>放松手指和手臂，紧张、攥杆是新手常见问题；</li>
+<li><strong>牢记天地线（天地比）</strong>：镜头仰角约 30° 时，画面里天空与地面约为 2:1。任何姿态、哪怕倒飞，只要找回天地线就能把飞机改平——这个方法贯穿整个飞行生涯，改平时先对齐天地比，再用小杆量回正。</li>
 </ul>
 <h2 id="48-day-10">4.8 模拟器阶段达标标准（Day 10 考核）</h2>
 <ul>
@@ -2895,6 +3007,11 @@ body>
 <td>悬停抛投</td>
 <td>50 米速飞 + 定点悬停投掷 + 返航计时</td>
 </tr>
+<tr>
+<td>科目九</td>
+<td>刷锅（绕标环绕）</td>
+<td>左右对称环绕练习、弱侧手补强（花飞入门）</td>
+</tr>
 </tbody>
 </table>
 <h2 id="607">6.0.7 训练通用要求</h2>
@@ -2906,7 +3023,7 @@ body>
 <li><strong>每个科目都有达标标准</strong>，达标后再进入下一科。</li>
 </ul>
 <h2 id="_27">本章小结</h2>
-<p>实飞必须在模拟器达标、飞机调试合格、合规场地和观察员就位的前提下进行。科目按观察、抛飞、赛道、破 S、各类门型、悬停抛投循序渐进。慢、稳、视线提前，是贯穿所有实飞科目的共同要领。下面进入科目一。</p>
+<p>实飞必须在模拟器达标、飞机调试合格、合规场地和观察员就位的前提下进行。科目按观察、抛飞、赛道、破 S、各类门型、刷锅、悬停抛投循序渐进。慢、稳、视线提前，是贯穿所有实飞科目的共同要领。下面进入科目一。</p>
 <h2 id="_28">科目一 空域观察与航标识别</h2>
 <blockquote>
 <p>对应原大纲「远程侦查与识别」，本教程将其定位为<strong>飞场内的空域观察与航标/障碍识别训练</strong>，目的是培养飞手的态势感知和空间判断能力。
@@ -3518,6 +3635,105 @@ body>
 </blockquote>
 <h3 id="_101">本科目小结</h3>
 <p>悬停抛投考的是「快—稳—准」的转换：50 米速飞考验速度控制，5 米见方区域考验悬停精度，15 秒满分线考验全流程节奏。投进是底线，时间是加分。完成本科目后，即可参加结业综合考核。</p>
+<h2 id="k9">科目九 刷锅（绕标环绕 · 左刷 / 右刷）</h2>
+<blockquote>
+<p>「刷锅」（Orbit）是花飞动作的入门台阶：围绕一个标志物（俗称「锅」——标志桶、灯柱、空旷场地里的专用标靶）做半径恒定的环绕飞行，机头始终指向「锅」。本科目把<strong>左刷</strong>与<strong>右刷</strong>分成两条独立训练线，两侧都要过关——只会一侧方向的刷锅在花飞里是半成品。
+<strong>合规边界</strong>：只能在合规场地、以训练标志物为「锅」练习；严禁环绕人员、车辆、建筑或任何敏感目标，全程视距内、观察员在位。</p>
+</blockquote>
+<h3 id="k9-1">一、训练目的</h3>
+<ul>
+<li>把「横滚 + 偏航 + 俯仰 + 油门」合成为一个稳定的环绕动作；</li>
+<li>学会用画面中心锁定参照物：锅永远待在画面正中，半径靠 pitch 微调；</li>
+<li>左右两个方向建立对称手感，消除弱侧手。</li>
+</ul>
+<h3 id="k9-2">二、动作原理</h3>
+<p>刷锅是「平移 + 持续转向」的合成：以<strong>横滚（Roll）为主驱动</strong>，让飞机绕锅横移画圆；<strong>偏航（Yaw）缓慢跟随</strong>，让机头始终指向锅心；<strong>俯仰与油门</strong>负责补半径和补高度——环绕中飞机外侧速度大于内侧，会自然向外甩、向下沉，所以要持续用小幅俯仰「顶住」锅的方向、用油门托住高度。</p>
+<blockquote>
+<p>一句话概括：<strong>横滚画圆，偏航对心，油门托高</strong>。三个通道都在动，但每个杆量都很小。</p>
+</blockquote>
+<h3 id="k9-3">三、左刷与右刷的区别</h3>
+<p>左刷、右刷指的是从上往下看，飞机绕锅的旋转方向：<strong>右刷为顺时针，左刷为逆时针</strong>。打杆逻辑完全镜像，但飞行感受不对称——多数新手（美国手）右杆横滚更细腻，右刷上手快，左刷是弱侧，必须单独补课。</p>
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>右刷（顺时针）</th>
+<th>左刷（逆时针）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>横滚杆</td>
+<td>持续向右压小杆量</td>
+<td>持续向左压小杆量（镜像）</td>
+</tr>
+<tr>
+<td>偏航杆</td>
+<td>缓慢向右持续补，机头跟住锅</td>
+<td>缓慢向左持续补，机头跟住锅</td>
+</tr>
+<tr>
+<td>画面特征</td>
+<td>锅在画面中心，背景顺时针流动</td>
+<td>锅在画面中心，背景逆时针流动</td>
+</tr>
+<tr>
+<td>常见难点</td>
+<td>容易越绕越快、半径外扩</td>
+<td>弱侧手不顺，易丢锅、高度乱</td>
+</tr>
+<tr>
+<td>训练定位</td>
+<td>先学，建立环绕的「模板」</td>
+<td>后学，镜像复制模板，量要练够</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>要点</strong>：两侧的训练量建议 1:1。右刷建立手感后，左刷不要急着求稳，先慢速「贴模板」走两圈，让肌肉记忆镜像建立，再逐步提速。</p>
+</blockquote>
+<h3 id="k9-4">四、分解训练</h3>
+<h4>步骤 1：定点悬停对心</h4>
+<p>距锅 3–5 米悬停，把锅调整到画面正中，记住此时的天地比与锅的视觉大小——这就是你的「基准画面」。</p>
+<h4>步骤 2：1/4 圆分段绕</h4>
+<p>右刷先练：压一点右横滚，飞机开始侧移，随即补右偏航让机头跟上锅；每绕 1/4 圈稍作停顿、回稳悬停，检查锅是否还在画面正中、高度是否还在基准线。</p>
+<h4>步骤 3：连续环绕（右刷）</h4>
+<p>把 1/4 圈连起来，保持恒定小杆量，连续绕 2–3 圈不丢锅。速度宁慢勿快，半径控制在 3–5 米。</p>
+<h4>步骤 4：镜像左刷</h4>
+<p>杆量全部镜像，从步骤 2 重来。弱侧允许慢一半的速度，但动作标准不降。</p>
+<h4>步骤 5：进入与退出</h4>
+<p>从任意朝向接近锅 → 过渡进环绕 → 稳定绕 2 圈 → 平滑退出悬停。能进能出才算掌握。</p>
+<h3 id="k9-5">五、动作要领</h3>
+<ul>
+<li><strong>杆量小而持续</strong>：环绕是一组「恒定微杆量」，不是一下一下的修正；</li>
+<li><strong>锅锁画面正中</strong>：锅一偏，用俯仰/横滚微调拉回，不要用大幅偏航追；</li>
+<li><strong>外甩就收一点横滚、掉高就补油门</strong>：半径和高度是两条随时要盯的线；</li>
+<li><strong>视线提前</strong>：眼睛盯锅和它的背景，余光管天地线，不要盯着自己的机头。</li>
+</ul>
+<h3 id="k9-6">六、常见错误</h3>
+<ul>
+<li><strong>越绕越大（半径外扩）</strong>：横滚量随速度自然加大，主动收一点；</li>
+<li><strong>越绕越低</strong>：环绕转弯相当于持续转弯，掉高要靠油门补；</li>
+<li><strong>左刷时方向感错乱</strong>：弱侧正常现象，降速重练步骤 2，不要在快速度里硬纠；</li>
+<li><strong>机头丢失锅心</strong>：偏航补得断断续续，改成持续微补；</li>
+<li><strong>只会顺时针</strong>：训练量失衡，按 1:1 补弱侧。</li>
+</ul>
+<h3 id="k9-7">七、达标标准</h3>
+<ul>
+<li>右刷、左刷各连续环绕 ≥ 3 圈不丢锅；</li>
+<li>半径变化 &lt; 1 米，高度漂移 &lt; 1 米；</li>
+<li>能从任意方向平滑进入环绕并平滑退出到定点悬停；</li>
+<li>两侧杆量对称、速度一致——把两侧各录一段 DVR，回放对比。</li>
+</ul>
+<h3 id="k9-8">八、安全注意</h3>
+<ul>
+<li>「锅」只选固定、柔软、无尖锐边角的训练标志物，禁止环绕人、车、动物、建筑；</li>
+<li>环绕半径内全程净空，观察员站在环绕圈外并保持全程目视；</li>
+<li>先在模拟器练熟（科目对应模拟器花飞入门），真机首次刷锅速度减半；</li>
+<li>迷失方向或丢锅立即退出环绕、回稳悬停，禁止凭感觉追杆。</li>
+</ul>
+<h3 id="k9-9">本科目小结</h3>
+<p>刷锅 = 横滚画圆 + 偏航对心 + 油门托高。右刷建模板，左刷镜像补量，两侧 1:1 训练。它是之后大回环、连续花飞衔接的地基，也是模拟器通向真机花飞的最后一课。</p>
 <hr>
 <h1 id="_102">第四部分 · 拓展与回顾</h1>
 <h1 id="7">第 7 章 抛投器改装（合规用途）</h1>
@@ -3794,6 +4010,22 @@ body>
 <td>UOM</td>
 <td>民用无人驾驶航空器综合管理平台</td>
 </tr>
+<tr>
+<td>Spotter</td>
+<td>目视观察员，FPV 飞行时在旁保持目视、提醒障碍与人员</td>
+</tr>
+<tr>
+<td>RTF</td>
+<td>Ready-To-Fly，到手飞套装，无需自行焊接组装</td>
+</tr>
+<tr>
+<td>天地线 / 天地比</td>
+<td>画面中天空与地面的分界线及比例（约 2:1），用于判断并改平姿态</td>
+</tr>
+<tr>
+<td>刷锅（Orbit）</td>
+<td>围绕标志物做半径恒定的环绕飞行，分左刷（逆时针）与右刷（顺时针）</td>
+</tr>
 </tbody>
 </table>
 <h3 id="b">附录 B 飞前检查单（精简版）</h3>
@@ -3914,7 +4146,236 @@ body>
 <li>不伤人、不偷拍、不违法；</li>
 <li>拿不准，就不飞。</li>
 </ul>
-  </main>
+  <hr>
+<h3 id="g">附录 G 2025 世界大赛赛道解析（成都 · 熊猫赛道）</h3>
+<p>前面 8 章讲的是「怎么把飞机飞起来」，这个附录讲的是另一件事：<strong>把练出来的东西放到一条真实的世界级赛道上去用。</strong>2025 年最具代表性的大型赛事场地是成都世运会的无人机竞速场，它的赛道俯瞰是一只熊猫——这张图本身就是一份很好的训练教案。</p>
+
+<h4>G.1 先看事实：这条赛道的公开参数</h4>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>公开信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>赛事</td>
+<td>The World Games 2025（2025 年世界运动会）无人机竞速项目，主办在世界运动会框架下，由国际航空运动联合会（FAI）负责竞赛</td>
+</tr>
+<tr>
+<td>时间地点</td>
+<td>2025 年 8 月 13—16 日，中国成都（整体赛期 8 月 7—17 日）</td>
+</tr>
+<tr>
+<td>赛道造型</td>
+<td>俯瞰为<strong>熊猫造型</strong>，呼应成都的城市形象</td>
+</tr>
+<tr>
+<td>门 / 障碍数量</td>
+<td><strong>44 个</strong>门或障碍</td>
+</tr>
+<tr>
+<td>展开航程</td>
+<td>约 <strong>590 米</strong>（沿最优 3D 航线中心线计算）</td>
+</tr>
+<tr>
+<td>场地与用材</td>
+<td>足球场量级的场地；支撑结构与障碍采用<strong>非金属材料</strong>（抗冲击复合塑料管、木质板材、高密度聚苯乙烯），目的是降低对图传信号的干扰</td>
+</tr>
+<tr>
+<td>夜航</td>
+<td>柔性硅胶防水 LED 灯带做多色照明，赛事包含夜间场次</td>
+</tr>
+<tr>
+<td>单圈用时参考</td>
+<td>FAI 给出的赛道设计参考：长度约 500–600 m，连飞 3 圈比赛用时约 2 分钟（即单圈约 40 秒量级）</td>
+</tr>
+</tbody>
+</table>
+<p>以上参数来源见 G.8「数据溯源」。</p>
+
+<h4>G.2 赛道示意俯视图</h4>
+<figure class="track-fig">
+<svg viewBox="0 0 820 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="2025 世运会成都熊猫造型赛道示意俯视图">
+  <rect x="0" y="0" width="820" height="600" fill="#fbfcfe"/>
+  <!-- 熊猫造型剪影：赛道本身的俯视轮廓就是一只熊猫 -->
+  <g fill="#eef2f7" stroke="#cbd5e0" stroke-width="1.5">
+    <ellipse cx="300" cy="112" rx="52" ry="44"/>   <!-- 左耳 -->
+    <ellipse cx="520" cy="112" rx="52" ry="44"/>   <!-- 右耳 -->
+    <ellipse cx="410" cy="215" rx="132" ry="120"/> <!-- 头部 -->
+    <ellipse cx="410" cy="430" rx="168" ry="135"/> <!-- 身体 -->
+    <ellipse cx="243" cy="360" rx="46" ry="72"/>   <!-- 左臂 -->
+    <ellipse cx="577" cy="360" rx="46" ry="72"/>   <!-- 右臂 -->
+    <ellipse cx="320" cy="548" rx="52" ry="40"/>   <!-- 左腿 -->
+    <ellipse cx="500" cy="548" rx="52" ry="40"/>   <!-- 右腿 -->
+  </g>
+  <!-- 面部/结构参考，帮助定位 -->
+  <g stroke="#cbd5e0" stroke-width="1.2" fill="none">
+    <ellipse cx="356" cy="196" rx="26" ry="30" fill="#e2e8f0"/>
+    <ellipse cx="464" cy="196" rx="26" ry="30" fill="#e2e8f0"/>
+    <path d="M300 470 q52 40 110 6"/>
+    <path d="M410 476 v-16"/>
+  </g>
+  <!-- 飞行航线（闭合一圈，沿熊猫轮廓） -->
+  <path id="line" d="M410 590 C 250 588, 196 520, 214 452 C 232 386, 168 348, 190 268
+        C 214 176, 300 86, 410 84 C 520 86, 606 176, 630 268 C 652 348, 588 386, 606 452
+        C 624 520, 570 588, 410 590 Z"
+        fill="none" stroke="#2b6cb0" stroke-width="3" stroke-linejoin="round"/>
+  <!-- 方向箭头 -->
+  <g fill="#2b6cb0">
+    <polygon points="410,590 400,574 420,576"/>
+    <polygon points="200,360 190,344 207,349"/>
+    <polygon points="410,84 400,100 420,98"/>
+    <polygon points="620,360 630,344 613,349"/>
+  </g>
+  <!-- 关键分区标记 -->
+  <g font-family="-apple-system,Segoe UI,PingFang SC,Microsoft YaHei,sans-serif" font-size="13">
+    <circle cx="410" cy="586" r="16" fill="#ffffff" stroke="#2b6cb0" stroke-width="2"/>
+    <text x="410" y="591" text-anchor="middle" fill="#2b6cb0" font-weight="700">起</text>
+    <circle cx="410" cy="88" r="16" fill="#ffffff" stroke="#2b6cb0" stroke-width="2"/>
+    <text x="410" y="93" text-anchor="middle" fill="#2b6cb0" font-weight="700">①</text>
+    <circle cx="196" cy="352" r="16" fill="#ffffff" stroke="#2b6cb0" stroke-width="2"/>
+    <text x="196" y="357" text-anchor="middle" fill="#2b6cb0" font-weight="700">②</text>
+    <circle cx="624" cy="352" r="16" fill="#ffffff" stroke="#2b6cb0" stroke-width="2"/>
+    <text x="624" y="357" text-anchor="middle" fill="#2b6cb0" font-weight="700">③</text>
+    <circle cx="243" cy="360" r="16" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+    <text x="243" y="365" text-anchor="middle" fill="#c2410c" font-weight="700">④</text>
+    <circle cx="577" cy="360" r="16" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+    <text x="577" y="365" text-anchor="middle" fill="#c2410c" font-weight="700">⑤</text>
+  </g>
+  <!-- 图例 -->
+  <g font-family="-apple-system,Segoe UI,PingFang SC,Microsoft YaHei,sans-serif" font-size="12" fill="#5b6470">
+    <line x1="600" y1="96" x2="628" y2="96" stroke="#2b6cb0" stroke-width="3"/>
+    <text x="636" y="100">飞行航线（一圈约 590 m）</text>
+    <rect x="600" y="116" width="28" height="16" fill="#eef2f7" stroke="#cbd5e0"/>
+    <text x="636" y="129">熊猫造型障碍区（示意）</text>
+    <circle cx="614" cy="146" r="8" fill="#fff" stroke="#c2410c" stroke-width="2"/>
+    <text x="636" y="150">高低落差 / 密集门段</text>
+    <text x="600" y="176" fill="#8492a6">顺时针侧为 ①→②→③，镜像方位同法练习</text>
+  </g>
+</svg>
+<figcaption>图 G-1　2025 世运会成都赛道的<strong>示意俯视图</strong>：官方公布的赛道俯瞰为熊猫造型，本书按其公开参数（44 个门/障碍、展开航程约 590 m）重绘为走线逻辑示意，用于理解「一圈怎么飞」。<strong>本图不是官方精确图纸</strong>，精确门位编号请以文末官方 PDF 为准。</figcaption>
+</figure>
+
+<p>读图方法：把熊猫的外轮廓当成一条闭合赛道。起点在底部两只脚之间，出发后沿身体轮廓向上爬，绕到耳朵、头部，再绕另一侧下来，回到起点成圈。整条线上密集分布 44 个门与障碍，高度并不在同一平面上——这就是为什么官方叫它「3D 飞行航线」。</p>
+
+<h4>G.3 这条图怎么跑：把一圈拆成五段</h4>
+<p>拿到任何一条竞速赛道，都可以用下面这套五段法去读。拿到官方图纸（含 44 个门的编号）后，再把每个门按段落填进去，练习就有了抓手。</p>
+<ol>
+<li><strong>第一段 · 起步接管（起步台 → 第 3 个门）</strong>：起飞 Pod 出发后的头三秒最重要。出闸立即把镜头抬到巡航俯角、飞机贴合设计航线，不要急着找速度。<strong>这一段不求快，求稳</strong>——跑崩的圈，八成崩在起飞后的第一个转弯里。</li>
+<li><strong>第二段 · 外圈大弧（身体轮廓的长弧段）</strong>：对应本书科目九「刷锅」的放大版：恒定小杆量 + 机头对心 + 油门托高。难点是<strong>弧线容易越绕越大</strong>，要在心理上打提前量，主动收一点横滚。</li>
+<li><strong>第三段 · 高度转换段（材料密集、需要爬升或俯冲的位置）</strong>：这一段的本质是「油门管理」。爬升前提前给油，俯冲前提前收油，<strong>不要等飞机掉下来再救</strong>。天地线在这里会被拉得不稳定，改平先对天地比（见 4.7 节）。</li>
+<li><strong>第四段 · 密集门段（连续过门 / 各类花式门）</strong>：对应本书科目三至科目七——破 S、三联门、反重力门、日子门都可能在赛道里出现。核心是<strong>视线提前</strong>：眼睛锁定下一个门，手自然会跟上；盯着门框过门，必撞。</li>
+<li><strong>第五段 · 收线回终点</strong>：这是最容易被忽略、丢时间最多的地方。最后几个门要<strong>主动控速</strong>，进终点前把速度收一点，保证穿准；冲线后立即减油门、抬起，按要求到指定区域降落。</li>
+</ol>
+<blockquote>
+<p><strong>一句话总结</strong>：起飞求稳、长弧求均、转换段求提前、密集门求视线、终段求控制。<strong>快是靠走线准堆出来的，不是靠油门堆出来的。</strong></p>
+</blockquote>
+
+<h4>G.4 本书科目与世界大赛赛道的对应</h4>
+<table>
+<thead>
+<tr>
+<th>本书科目</th>
+<th>赛道上会出现在哪</th>
+<th>达标后在这条线上的收益</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>科目一 空域观察</td>
+<td>全程</td>
+<td>知道自己飞机和赛道整体的相对位置，不会「飞丢」</td>
+</tr>
+<tr>
+<td>科目二 抛飞</td>
+<td>训练现场的手抛起飞</td>
+<td>场地条件受限时也能安全起飞</td>
+</tr>
+<tr>
+<td>科目三 赛道障碍</td>
+<td>第五段密集门区</td>
+<td>建立基本走线概念</td>
+</tr>
+<tr>
+<td>科目四 破 S 转弯</td>
+<td>高度突然转向的外侧段</td>
+<td>掉头不掉高，衔接连续</td>
+</tr>
+<tr>
+<td>科目五 三联门</td>
+<td>连续同向门组</td>
+<td>保持过门节奏，不「一慢到底」</td>
+</tr>
+<tr>
+<td>科目六 反重力门</td>
+<td>需要爬升再俯冲的段落</td>
+<td>俯冲—拉起成型，不慌</td>
+</tr>
+<tr>
+<td>科目七 日子门</td>
+<td>窄门、左右切换处</td>
+<td>精准通过，少修更多的杆</td>
+</tr>
+<tr>
+<td>科目八 悬停抛投</td>
+<td>训练中的精细控制</td>
+<td>油门与位置的精微控制能力</td>
+</tr>
+<tr>
+<td>科目九 刷锅（新增）</td>
+<td>第二段外圈大弧</td>
+<td>左右两侧都能稳住圆弧，节奏一致</td>
+</tr>
+</tbody>
+</table>
+
+<h4>G.5 训练计划：把这条赛道练出来</h4>
+<ol>
+<li><strong>先在模拟器里跑通，再谈真机。</strong>官方把这条赛道做进了 <strong>EreaDrone</strong> 模拟器：启动后在曲目里搜索「The World Games 2025」，可选白天与夜间两种光照条件。先在模拟器把 44 个门的顺序背下来。</li>
+<li><strong>分段练，不要一上来跑全圈。</strong>按 G.3 的五段，一次只练一段；单稳了再拼两段，最后才连全圈。</li>
+<li><strong>两侧各练一半。</strong>只要是绕行段（本书科目九），左刷右刷都做；世界级赛道不会有「只转一边」的便宜。</li>
+<li><strong>录自己的 DVR。</strong>每圈回看，把「哪个门开始偏、哪个点掉高」标出来，下次专治那一个点。</li>
+<li><strong>计时，而不是计时靠主观。</strong>同一套航线分段计时，每次练只比上一练快一点点。</li>
+</ol>
+
+<h4>G.6 自己复刻一条训练赛道</h4>
+<p>没有官方赛道也能练同样的能力。在合规场地布一条小型赛道：</p>
+<ul>
+<li><strong>5–8 个门</strong>：用软质管子或标定桩做「框架」，宁软勿硬、宁低勿高；</li>
+<li><strong>必须包含一次高低转换</strong>：一个低门紧接一个高门，练油门管理；</li>
+<li><strong>必须包含一个连续同向门组</strong>：三联门的极简版，练节奏；</li>
+<li><strong>必须包含一个绕行段</strong>：绕一个标志桶做刷锅，练科目九；</li>
+<li><strong>起终点分开</strong>：起点在侧、终点在另侧并留出降落区，避免落地干扰在飞的飞机。</li>
+</ul>
+<blockquote>
+<p><strong>红线</strong>：赛道只能布在合法合规、无人无车的场地（见第 3 章）；不得借用他人场地、不得在小区、道路、公园人群上方飞行；不得使用金属、硬质或带尖锐边角的物件做障碍。</p>
+</blockquote>
+
+<h4>G.7 数据溯源</h4>
+<ul>
+<li>FAI 官方赛道页（含参数、2D 图纸下载、演示飞行视频、模拟器接入方式）：<a href="https://www-2025.fai.org/node/203925">The World Games 2025 — Drone Racing · Race track</a></li>
+<li>官方赛道 2D 图纸 PDF（含门/障碍编号的俯视图）：<a href="https://www-2025.fai.org/sites/default/files/ciam/wcup_drones/top_night_path_numbers_2.pdf">TWG 2025 Racing track</a></li>
+<li>FAI 赛事规则与场地通用规范（500–600 m、约 2 分钟 3 圈、非金属材质、夜航照明要求）：<a href="https://fai.org/page/format">The World Games 2025 — Drone Racing · Format</a></li>
+<li>赛道造型公开报道（熊猫造型、44 门、约 590 m）：<a href="https://www.fai.org/news/panda-shaped-drone-racing-track-unveiled-world-games-2025">Panda-shaped drone racing track unveiled for The World Games 2025</a></li>
+<li>官方演示飞行（YouTube）：<a href="https://youtu.be/b066-z0srL4">Demo flight on the TWG 2025 race track</a></li>
+</ul>
+<p>法规条款与赛事规则会更新，训练与备赛前请以官方网站当日公布的版本为准。</p>
+<hr>
+<h3 id="h">附录 H 版本说明</h3>
+<p>本版更新内容：</p>
+<ul>
+<li>首页新增「起飞前先认表：机型分类」与「三步选路线」；</li>
+<li>第 3 章补充无人机分类表与管制空域报批时限（拟飞行前 1 日 12 时前）；</li>
+<li>第 4 章补充模拟器 10 小时门槛、从第一天练 Acro、天地线 2:1 改平法；</li>
+<li>第 6 章新增科目九「刷锅」，左刷 / 右刷分开训练；</li>
+<li>术语表新增 Spotter、RTF、天地线 / 天地比、刷锅四条；</li>
+<li>新增附录 G：2025 世界大赛赛道解析（成都 · 熊猫赛道）；</li>
+<li>全书新增 A4 打印版式（章节另起页、表格与图不跨页切断）。</li>
+</ul>
+
+</main>
 </div>
 
 <script>
