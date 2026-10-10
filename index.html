@@ -79,6 +79,14 @@ li input[type=checkbox]{margin-right:.5em}
   main h1:first-of-type{font-size:1.7em}
   main h2{font-size:1.3em}
 }
+.cover{text-align:center; padding:88px 20px 64px; margin-bottom:2.2em;
+  border-bottom:1px solid var(--line); background:linear-gradient(180deg,#fbfdff,#ffffff)}
+.cover-title{font-size:2.55em; font-weight:700; color:var(--accent); line-height:1.45;
+  margin:0 0 .7em; letter-spacing:.04em}
+.cover-sub{font-size:1.12em; color:#374151; margin:0 0 1.6em}
+.cover-line{font-size:1em; color:var(--muted); letter-spacing:.16em; margin:0 0 3.2em}
+.cover-meta{font-size:.95em; color:var(--muted); margin:0 0 1em}
+.cover-note{font-size:.85em; color:#8492a6; margin:0; line-height:1.8}
 figure.track-fig{margin:1.4em 0; padding:0; text-align:center}
 figure.track-fig svg{width:100%; max-width:760px; height:auto; border:1px solid var(--line);
   border-radius:8px; background:#fbfcfe}
@@ -88,6 +96,8 @@ figure.track-fig figcaption{margin-top:.7em; font-size:13.5px; line-height:1.7; 
   .sidebar{display:none} main{padding:0; max-width:100%}
   pre{background:#f5f5f5; color:#111}
   main h1{page-break-before:always; break-before:page}
+  .cover{padding:56mm 0 0; border:none; background:none; min-height:225mm;
+    page-break-after:always; break-after:page}
   main h1:first-of-type{page-break-before:auto; break-before:auto}
   main h2, main h3, main h4{break-after:avoid; page-break-after:avoid}
   table, pre, blockquote, img, figure svg{break-inside:avoid; page-break-inside:avoid}
@@ -437,7 +447,14 @@ body>
 <li><a href="#k9-1">一、训练目的</a></li>
 <li><a href="#k9-2">二、动作原理</a></li>
 <li><a href="#k9-3">三、左刷与右刷的区别</a></li>
-<li><a href="#k9-4">四、分解训练</a></li>
+<li><a href="#k9-4">四、分解训练</a><ul>
+<li><a href="#k9-s1">步骤 1：定点悬停对心</a></li>
+<li><a href="#k9-s2">步骤 2：1/4 圆分段绕</a></li>
+<li><a href="#k9-s3">步骤 3：连续环绕（右刷）</a></li>
+<li><a href="#k9-s4">步骤 4：镜像左刷</a></li>
+<li><a href="#k9-s5">步骤 5：进入与退出</a></li>
+</ul>
+</li>
 <li><a href="#k9-5">五、动作要领</a></li>
 <li><a href="#k9-6">六、常见错误</a></li>
 <li><a href="#k9-7">七、达标标准</a></li>
@@ -478,7 +495,16 @@ body>
 <li><a href="#d">附录 D 器材与采购</a></li>
 <li><a href="#e">附录 E 法规与实用链接</a></li>
 <li><a href="#f">附录 F 安全红线速记</a></li>
-<li><a href="#g">附录 G 2025 世界大赛赛道解析</a></li>
+<li><a href="#g">附录 G 2025 世界大赛赛道解析</a><ul>
+<li><a href="#g1">G.1 先看事实：这条赛道的公开参数</a></li>
+<li><a href="#g2">G.2 赛道示意俯视图</a></li>
+<li><a href="#g3">G.3 这条图怎么跑：把一圈拆成五段</a></li>
+<li><a href="#g4">G.4 本书科目与世界大赛赛道的对应</a></li>
+<li><a href="#g5">G.5 训练计划：把这条赛道练出来</a></li>
+<li><a href="#g6">G.6 自己复刻一条训练赛道</a></li>
+<li><a href="#g7">G.7 数据溯源</a></li>
+</ul>
+</li>
 <li><a href="#h">附录 H 版本说明</a></li>
 </ul>
 </li>
@@ -487,7 +513,14 @@ body>
 
   </nav>
   <main>
-    <h1 id="fpv-30">FPV 穿越机 30 天入门教程</h1>
+    <div class="cover">
+<p class="cover-title">FPV 穿越机<br>30 天入门教程</p>
+<p class="cover-sub">面向完全零基础新手的 FPV 穿越机学习教程</p>
+<p class="cover-line">先理论 · 再模拟 · 后实飞</p>
+<p class="cover-meta">2026 年 10 月版　　make1477</p>
+<p class="cover-note">本书内容仅供学习参考，飞行前请遵守当地法律法规，务必在合法合规的空旷场地练习。</p>
+</div>
+<h1 id="fpv-30">FPV 穿越机 30 天入门教程</h1>
 <h2 id="home-table">起飞前先认表：你的飞机属于哪一类</h2>
 <p>先把类别认清楚，再谈怎么飞。国内现行依据是《无人驾驶航空器飞行管理暂行条例》（2024 年 1 月 1 日起施行）。常见 5 寸花飞穿越机，空机加电池约 500–700 克，落在<strong>轻型</strong>；室内 Tinywhoop 小机多在 250 克以下，属<strong>微型</strong>。类别不同，能飞的高度、空域和资质要求都不同。</p>
 <table>
@@ -3693,15 +3726,15 @@ body>
 <p><strong>要点</strong>：两侧的训练量建议 1:1。右刷建立手感后，左刷不要急着求稳，先慢速「贴模板」走两圈，让肌肉记忆镜像建立，再逐步提速。</p>
 </blockquote>
 <h3 id="k9-4">四、分解训练</h3>
-<h4>步骤 1：定点悬停对心</h4>
+<h4 id="k9-s1">步骤 1：定点悬停对心</h4>
 <p>距锅 3–5 米悬停，把锅调整到画面正中，记住此时的天地比与锅的视觉大小——这就是你的「基准画面」。</p>
-<h4>步骤 2：1/4 圆分段绕</h4>
+<h4 id="k9-s2">步骤 2：1/4 圆分段绕</h4>
 <p>右刷先练：压一点右横滚，飞机开始侧移，随即补右偏航让机头跟上锅；每绕 1/4 圈稍作停顿、回稳悬停，检查锅是否还在画面正中、高度是否还在基准线。</p>
-<h4>步骤 3：连续环绕（右刷）</h4>
+<h4 id="k9-s3">步骤 3：连续环绕（右刷）</h4>
 <p>把 1/4 圈连起来，保持恒定小杆量，连续绕 2–3 圈不丢锅。速度宁慢勿快，半径控制在 3–5 米。</p>
-<h4>步骤 4：镜像左刷</h4>
+<h4 id="k9-s4">步骤 4：镜像左刷</h4>
 <p>杆量全部镜像，从步骤 2 重来。弱侧允许慢一半的速度，但动作标准不降。</p>
-<h4>步骤 5：进入与退出</h4>
+<h4 id="k9-s5">步骤 5：进入与退出</h4>
 <p>从任意朝向接近锅 → 过渡进环绕 → 稳定绕 2 圈 → 平滑退出悬停。能进能出才算掌握。</p>
 <h3 id="k9-5">五、动作要领</h3>
 <ul>
@@ -4150,7 +4183,7 @@ body>
 <h3 id="g">附录 G 2025 世界大赛赛道解析（成都 · 熊猫赛道）</h3>
 <p>前面 8 章讲的是「怎么把飞机飞起来」，这个附录讲的是另一件事：<strong>把练出来的东西放到一条真实的世界级赛道上去用。</strong>2025 年最具代表性的大型赛事场地是成都世运会的无人机竞速场，它的赛道俯瞰是一只熊猫——这张图本身就是一份很好的训练教案。</p>
 
-<h4>G.1 先看事实：这条赛道的公开参数</h4>
+<h4 id="g1">G.1 先看事实：这条赛道的公开参数</h4>
 <table>
 <thead>
 <tr>
@@ -4195,7 +4228,7 @@ body>
 </table>
 <p>以上参数来源见 G.8「数据溯源」。</p>
 
-<h4>G.2 赛道示意俯视图</h4>
+<h4 id="g2">G.2 赛道示意俯视图</h4>
 <figure class="track-fig">
 <svg viewBox="0 0 820 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="2025 世运会成都熊猫造型赛道示意俯视图">
   <rect x="0" y="0" width="820" height="600" fill="#fbfcfe"/>
@@ -4260,7 +4293,7 @@ body>
 
 <p>读图方法：把熊猫的外轮廓当成一条闭合赛道。起点在底部两只脚之间，出发后沿身体轮廓向上爬，绕到耳朵、头部，再绕另一侧下来，回到起点成圈。整条线上密集分布 44 个门与障碍，高度并不在同一平面上——这就是为什么官方叫它「3D 飞行航线」。</p>
 
-<h4>G.3 这条图怎么跑：把一圈拆成五段</h4>
+<h4 id="g3">G.3 这条图怎么跑：把一圈拆成五段</h4>
 <p>拿到任何一条竞速赛道，都可以用下面这套五段法去读。拿到官方图纸（含 44 个门的编号）后，再把每个门按段落填进去，练习就有了抓手。</p>
 <ol>
 <li><strong>第一段 · 起步接管（起步台 → 第 3 个门）</strong>：起飞 Pod 出发后的头三秒最重要。出闸立即把镜头抬到巡航俯角、飞机贴合设计航线，不要急着找速度。<strong>这一段不求快，求稳</strong>——跑崩的圈，八成崩在起飞后的第一个转弯里。</li>
@@ -4273,7 +4306,7 @@ body>
 <p><strong>一句话总结</strong>：起飞求稳、长弧求均、转换段求提前、密集门求视线、终段求控制。<strong>快是靠走线准堆出来的，不是靠油门堆出来的。</strong></p>
 </blockquote>
 
-<h4>G.4 本书科目与世界大赛赛道的对应</h4>
+<h4 id="g4">G.4 本书科目与世界大赛赛道的对应</h4>
 <table>
 <thead>
 <tr>
@@ -4331,7 +4364,7 @@ body>
 </tbody>
 </table>
 
-<h4>G.5 训练计划：把这条赛道练出来</h4>
+<h4 id="g5">G.5 训练计划：把这条赛道练出来</h4>
 <ol>
 <li><strong>先在模拟器里跑通，再谈真机。</strong>官方把这条赛道做进了 <strong>EreaDrone</strong> 模拟器：启动后在曲目里搜索「The World Games 2025」，可选白天与夜间两种光照条件。先在模拟器把 44 个门的顺序背下来。</li>
 <li><strong>分段练，不要一上来跑全圈。</strong>按 G.3 的五段，一次只练一段；单稳了再拼两段，最后才连全圈。</li>
@@ -4340,7 +4373,7 @@ body>
 <li><strong>计时，而不是计时靠主观。</strong>同一套航线分段计时，每次练只比上一练快一点点。</li>
 </ol>
 
-<h4>G.6 自己复刻一条训练赛道</h4>
+<h4 id="g6">G.6 自己复刻一条训练赛道</h4>
 <p>没有官方赛道也能练同样的能力。在合规场地布一条小型赛道：</p>
 <ul>
 <li><strong>5–8 个门</strong>：用软质管子或标定桩做「框架」，宁软勿硬、宁低勿高；</li>
@@ -4353,7 +4386,7 @@ body>
 <p><strong>红线</strong>：赛道只能布在合法合规、无人无车的场地（见第 3 章）；不得借用他人场地、不得在小区、道路、公园人群上方飞行；不得使用金属、硬质或带尖锐边角的物件做障碍。</p>
 </blockquote>
 
-<h4>G.7 数据溯源</h4>
+<h4 id="g7">G.7 数据溯源</h4>
 <ul>
 <li>FAI 官方赛道页（含参数、2D 图纸下载、演示飞行视频、模拟器接入方式）：<a href="https://www-2025.fai.org/node/203925">The World Games 2025 — Drone Racing · Race track</a></li>
 <li>官方赛道 2D 图纸 PDF（含门/障碍编号的俯视图）：<a href="https://www-2025.fai.org/sites/default/files/ciam/wcup_drones/top_night_path_numbers_2.pdf">TWG 2025 Racing track</a></li>
