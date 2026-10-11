@@ -47,3 +47,7 @@ https://make1477.github.io/fpv-book/
 ## 许可
 
 MIT License
+
+---
+
+Site last rebuilt: 2026-10-11.
